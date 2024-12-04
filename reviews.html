@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -7,6 +8,7 @@
   <link rel="stylesheet" href="style.css" />
   <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@400;600&family=Lemonada:wght@600&display=swap" rel="stylesheet" />
   <style>
+    /* Apply chocolate color to all text */
     body, h1, p, a {
       color: #3e2723;
     }
@@ -61,16 +63,29 @@
 
     .review p:last-child {
       font-style: italic;
-      color: #555;
+      color: #555; /* Optional: change this if you want the author name to match */
     }
   </style>
 </head>
+
 <body>
+  <!-- Check login status -->
   <script>
     if (localStorage.getItem("isLoggedIn") !== "true") {
       window.location.href = "login.html";
     }
+
+    // Debugging code to check the review elements
+    document.addEventListener("DOMContentLoaded", () => {
+      const reviews = document.querySelectorAll('.review');
+      reviews.forEach((element, index) => {
+        console.log(Review ${index + 1}:, element);
+        element.style.opacity = 1; // Ensuring opacity is set for visibility
+      });
+    });
   </script>
+
+  <!-- Header Section -->
   <header id="header">
     <div class="logo">
       <img src="logo.png" alt="Rabbit Bakery Logo" />
@@ -84,6 +99,8 @@
       </ul>
     </nav>
   </header>
+
+  <!-- Customer Reviews Section -->
   <section id="reviews" class="page">
     <div class="heading">
       <h1>Customer Reviews</h1>
@@ -108,6 +125,7 @@
       </div>
     </div>
   </section>
+
   <footer id="footer">
     <p>Rabbit Bakery &copy; 2024</p>
   </footer>
